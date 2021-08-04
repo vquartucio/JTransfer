@@ -1,5 +1,7 @@
-package com.company;
+package com.useexample;
 
+
+import com.company.JFileServer;
 
 public class ServerMain {
 

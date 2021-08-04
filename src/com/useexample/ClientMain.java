@@ -1,4 +1,6 @@
-package com.company;
+package com.useexample;
+
+import com.company.Client;
 
 public class ClientMain {
 
