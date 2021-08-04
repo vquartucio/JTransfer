@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client {
+public class JFClient {
 
     private int portNo = 0;
     private String hostName = null;
@@ -39,15 +39,25 @@ public class Client {
         return this.hostName;
     }
 
+    public int sendRequestType(String request){
+        try {
+            OutputStreamWriter toSend = new OutputStreamWriter(this.serverSocket.getOutputStream());
+            toSend.write("JFile " + request + " ");
+            toSend.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 1;
+    }
+
 
     public int sendMessage(String arg){
-
         try {
             this.serverSocket = new Socket(this.hostName, this.portNo);
             OutputStreamWriter tosend = new OutputStreamWriter(serverSocket.getOutputStream());
             tosend.write(arg, 0, arg.length());
             tosend.flush();
-            this.serverSocket.close();
+
         } catch (UnknownHostException e) {
             e.printStackTrace();
             return -1;
@@ -56,5 +66,6 @@ public class Client {
             return -1;
         }
         return 1;
+
     }
 }
