@@ -11,13 +11,10 @@ public class ServerMain {
         JFileServer.hello();
 
         JFileServer ok = new JFileServer();
-        ok.setPort(2343);
+        ok.setPort(2345);
         System.out.println(ok.getPort());
-
+        ok.setDirectory("ExampleServerDirectory");
         ok.server();
-
-
-
 
     }
 }
